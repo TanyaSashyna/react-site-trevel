@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 10px;
+}
+
+button, input {
+  outline: none;
+}
+
+button {
+  border: none;
+  background: transparent;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2.4em;
+}
+
+p {
+  font-size: 1.6em;
+}
+
+.main {
+    padding-top: 72px;
+}
+
+.d-none {
+    display: none;
+}
+
+.d-block {
+    display: block;
+}
+
+@media (max-width: 767px) {
+    caption-elem {
+        flex-direction: column;
+    }
+
+    .caption-wrap,
+    .caption-img,
+    selection-from,
+    selection-to,
+    .way-img,
+    .way-info {
+        width: 100%;
+    }
+}
+
+//form
+form {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 10px;
+
+    .form-group {
+        position: relative;
+        width: 50%;
+        padding: 0 10px 30px;
+
+        @media (max-width: 767px) {
+            width: 100%;
+        }
+
+        .error {
+            display: none;
+            position: absolute;
+            bottom: 15px;
+            left: 10px;
+            font-size: 1.2em;
+            color: #bf3a3a;
+        }
+    }
+
+    .btn-block {
+        width: 100%;
+        padding: 0 10px;
+        text-align: center;
+    }
+
+    input {
+        display: block;
+        width: 100%;
+        height: 40px;
+        padding: 5px 5px 5px 10px;
+        font-size: 1.7em;
+        color: #656565;
+        outline: none;
+        border: 1px solid #b3b3b3;
+        background: #f9f9f9;
+        transition: all 0.3s ease;
+    }
+}
+//form

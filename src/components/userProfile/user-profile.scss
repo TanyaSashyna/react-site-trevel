@@ -1,0 +1,59 @@
+@import "../../variables";
+
+.user-profile {
+    padding: 0 10px;
+
+    .user-avatar {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .avatar {
+        width: 175px;
+        height: 175px;
+        border-radius: 50%;
+        background-image: url(../../assets/img/avatar.svg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .info {
+        padding: 20px 0;
+        border-top: 1px solid #b3b3b3;
+    }
+
+    .item {
+        display: flex;
+        padding: 10px 0;
+        font-size: 1.8em;
+
+        @media (max-width: 575px) {
+            display: block;
+            font-size: 1.6em;
+        }
+
+        label {
+            width: 50%;
+            text-align: right;
+            padding-right: 5px;
+
+            @media (max-width: 575px) {
+                width: auto;
+                text-align: left;
+            }
+        }
+
+        span {
+            width: 50%;
+            padding-left: 5px;
+            font-weight: 700;
+
+            @media (max-width: 575px) {
+                width: auto;
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+@import "../../variables";
+
+.from-to {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 0;
+
+    .caption {
+        max-width: 600px;
+        width: 100%;
+        padding-bottom: 20px;
+        font-weight: 700;
+
+        &-wrap {
+            padding: 20px;
+            width: 50%;
+
+            .legend {
+                color: $color-light-grey;
+                text-align: justify;
+            }
+        }
+
+        &-img {
+            padding: 20px;
+            width: 50%;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+}

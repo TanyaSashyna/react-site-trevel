@@ -1,0 +1,76 @@
+@import "../../variables";
+
+.way {
+    &-content {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px 0 40px;
+
+        .back {
+            font-size: 2.1em;
+            padding: 0 10px;
+            margin: 0 0 20px 20px;
+
+            span {
+                display: inline-block;
+                margin-bottom: 2px;
+            }
+        }
+    }
+
+    &-head {
+        width: 100%;
+        padding-bottom: 20px;
+        text-align: center;
+        margin: 0;
+    }
+
+    &-img {
+        width: 50%;
+        padding: 20px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &-info {
+        width: 50%;
+        padding: 20px;
+
+        h4 {
+            font-size: 1.8em;
+            text-transform: uppercase;
+            padding-bottom: 20px;
+            margin: 0;
+            font-weight: 400;
+
+            .when {
+                text-transform: none;
+                font-weight: 700;
+            }
+        }
+
+        .time, 
+        .where, 
+        .city-time, 
+        .price {
+            font-weight: 700;
+        }
+
+        .way-time, 
+        .way-where, 
+        .arrival {
+            padding-bottom: 10px;
+            font-size: 1.6em;
+        }
+
+        .price {
+            font-size: 2.1em;
+            font-weight: 700;
+            color: #3399cc;
+            text-align: right;
+            padding: 20px 0 30px;
+        }
+    }
+}
