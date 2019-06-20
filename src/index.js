@@ -5,8 +5,9 @@ import { Provider } from "react-redux";
 
 import "./style.scss";
 
-import Sidebar from './components/sidebar/Sidebar';
+import MenuMob from './components/menuMob/MenuMob';
 import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 import App from './router';
 
 import * as serviceWorker from './serviceWorker';
@@ -17,8 +18,9 @@ ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <Header />
-            <Sidebar />
+            <MenuMob />
             <App />
+            <Footer/>
         </BrowserRouter>
     </Provider>,
     document.getElementById('root')
@@ -38,6 +40,7 @@ serviceWorker.unregister();
         - большая картинка с инфой
         - РЕГУЛЯРНЫЕ МАРШРУТЫ - ввиде картинок,без переходов
     2. О нас
-    3. Контакты
-    4. Пассажирские перевозки
+    3. Пассажирские перевозки
+    4. Контакты
+
 */

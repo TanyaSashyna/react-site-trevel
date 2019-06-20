@@ -1,12 +1,13 @@
 import React from 'react';
 
-import "./intercity.scss";
+import "./transfer.scss";
 
+import Caption from '../caption/Caption';
 import SelectsBlock from '../selects-block/SelectsBlock';
 import AboutWay from '../aboutWay/AboutWay';
 import FormOrder from '../formOrder/FormOrder';
 
-export default class Intercity extends React.Component {
+export default class Transfer extends React.Component {
     constructor(props) {
         super(props);
 
@@ -40,6 +41,7 @@ export default class Intercity extends React.Component {
     render() {
         return (
             <div className="main">
+                <Caption/>
                 <div className="select-wrap">
                     <SelectsBlock
                         name="from-where"

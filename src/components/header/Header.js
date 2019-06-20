@@ -10,9 +10,11 @@ import "./header.scss";
 import Button from '../button/Button';
 import ImgComponent from '../imgComponent/ImgComponent';
 
-const menuSm = [
-    { id: 1, path: "/profile", className: "profile icon", src: "img/profile.svg", alt: "profile"},
-    { id: 2, path: "/settings", className: "settings icon", src: "img/settings.svg", alt: "settings"}
+const menu = [
+    { id: 1, path: "/", text:'Главная'},
+    { id: 2, path: "/about", text:'О нас' },
+    { id: 3, path: "/transfer", text:'Трансфер' },
+    { id: 4, path: "/contact", text:'Контакты' }
 ];
 
 export class Header extends React.Component {
@@ -38,13 +40,12 @@ export class Header extends React.Component {
                             <ImgComponent src="../../img/logo.svg" alt='logo'/>
                             <span>Travel</span>
                         </Link>
-                        <Link to="/counter">counter</Link>
                         <ul className="menu-sm">
                             {
-                                menuSm.map(el =>
+                                menu.map(el =>
                                     <li key={el.id}>
-                                        <Link to={el.path} className={el.className}>
-                                            <ImgComponent src={el.src} alt={el.alt} />
+                                        <Link to={el.path} className='link'>
+                                            {el.text}
                                         </Link>
                                     </li>
                                 )
