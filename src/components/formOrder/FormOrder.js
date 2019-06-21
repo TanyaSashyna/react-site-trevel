@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from "react-redux";
+
+import { modalForm } from "../../actions/modal-form";
 
 import "./form-order.scss";
 
@@ -49,12 +52,21 @@ const dataForm = [
         labelText: 'Количество мест',
         id: 5
     }
-]
+];
 
-export default class FormOrder extends React.Component {
+export class FormOrder extends React.Component {
 
-    sendOrderForm(e) {
-        console.log("sendOrderForm")
+    shouldComponentUpdate(nextProps) {
+        const { modalForm } = this.props;
+
+        if( nextProps.showModalForm ) {
+            setTimeout( function() {
+                    modalForm()
+                }, 5000
+            )
+        }
+
+        return true
     }
 
     onChangeValue(e) {
@@ -62,6 +74,7 @@ export default class FormOrder extends React.Component {
     }
 
     render() {
+        const { showModalForm, modalForm } = this.props;
         return (
             <>
                 <form>
@@ -83,12 +96,23 @@ export default class FormOrder extends React.Component {
                             type="button"
                             className="btn"
                             id="buy-ticket"
-                            onClick={this.sendOrderForm}
+                            onClick={ modalForm }
                         />
                     </div>
                 </form>
-                <ModalForm />{/*показывать после отправки и удалять через время*/}
+                {showModalForm && <ModalForm />}
             </>
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        showModalForm: state.modalForm.showModalForm
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    { modalForm }
+)(FormOrder);
