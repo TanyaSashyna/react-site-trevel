@@ -13,8 +13,8 @@ export default class Transfer extends React.Component {
 
         this.state = {
             fromTo: ['Выберите город', 'Харьков', 'Кириловка', 'Скадовск', 'Лазурное'],
-            fromWhere: ['Выберите город', 'Харьков', 'Кириловка', 'Скадовск', 'Лазурное'],
-            where: ['Выберите город', 'Харьков', 'Кириловка', 'Скадовск', 'Лазурное'],
+            fromWhereOne: ['Выберите город', 'Харьков'],
+            fromWhereTwo: ['Выберите город', 'Кириловка', 'Скадовск', 'Лазурное'],
             valueOne: 0,
             valueTwo: 0,
             showSelect: false
@@ -46,7 +46,7 @@ export default class Transfer extends React.Component {
                     <SelectsBlock
                         name="from-where"
                         value={this.state.valueOne}
-                        fromWhere={this.state.fromWhere}
+                        fromWhere={this.state.fromTo}
                         onChange={this.handleSelectChange.bind(this)}
                         text="Откуда"
                     />{/* при onChange менять обьект для второго селекта, отправлять в redux, затем передавать его второму селекту */}
@@ -54,7 +54,7 @@ export default class Transfer extends React.Component {
                         className={this.state.showSelect ? 'd-block' : 'd-none'}
                         name="where"
                         value={this.state.valueTwo}
-                        fromWhere={this.state.fromWhere}
+                        fromWhere={this.state.fromTo}
                         onChange={this.handleSelectChange.bind(this)}
                         text="Куда"
                     />

@@ -18,7 +18,7 @@ export default class AboutWay extends React.Component {
 					Харьков - Кириловка
 				</h1>
                 <div className="way-img">
-                    <ImgComponent src="https://yastrub-tour.com.ua/images/fedot.jpg" className="picture"/>
+                    <ImgComponent src="https://yastrub-tour.com.ua/images/fedot.jpg"/>
 				</div>
 				<div className="way-info">
 					<h4>Автобусные рейсы: <span className="when">Ежедневно</span></h4>
