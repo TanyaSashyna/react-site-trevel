@@ -7,9 +7,11 @@ export default class Contact extends React.Component {
         return (
             <div className="main">
                 <div className="picture">
-                    <img src="https://panch.com.ua/files/images/units/covers/big/panch20.jpg" alt="bus-picture"/>
-                    /* сделать картинку на фон */
-                    <h1 className="caption-page">Контакты</h1>
+                    <div className="caption-page">
+                        <div className="container">
+                            <h1>Контакты</h1>
+                        </div>
+                    </div>
                 </div>
             
                 <div className="contact-wrap">

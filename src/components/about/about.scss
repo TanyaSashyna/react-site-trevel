@@ -1,1 +1,56 @@
+@import "../../variables";
 
+.about-wrap {
+    padding: 100px 0;
+    text-align: center;
+
+    h2 {
+        position: relative;
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            margin: 0 auto;
+            background: $color-blue;
+        }
+    }
+
+    p {
+        max-width: 500px;
+        width: 100%;
+        margin: 0 auto;
+        font-size: 1.8em;
+        line-height: 1.5;
+
+        &:not(:last-child) {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+.lozung {
+    position: relative;
+    overflow: hidden;
+    background-image: url(https://cdn.pixabay.com/photo/2017/08/05/12/47/auto-2583303_960_720.jpg);
+    background-position: 100% 70%;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    h3 {
+        padding: 120px 0;
+        color: $color-black;
+        padding: 70px 10px;
+        font-size: 2em;
+        background: rgba(255, 255, 255, 0.6);
+        text-transform: uppercase;
+        text-align: center;
+    }
+}

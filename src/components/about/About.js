@@ -7,21 +7,25 @@ export default class About extends React.Component {
         return (
             <div className="main">
                 <div className="picture">
-                    <img src="https://panch.com.ua/files/images/units/covers/big/panch20.jpg" alt="bus-picture"/>
-                    /* сделать картинку на фон */
-                    <h1 className="caption-page">О нас</h1>
+                    <div className="caption-page">
+                        <div className="container">
+                            <h1>О нас</h1>
+                        </div>
+                    </div>
                 </div>
-                <div className="caption-wrap">
-                    <h2 className="caption">Чем мы занимаемся</h2>
-                    <p className="legend">
-                        Пассажирские перевозки по Украина комфортабельными автобусами и микроавтобусами.
-                        Стоимость каждой поездки рассчитывается индивидуально.
-                        Для постоянных клиентов существует система скидок.
-                    </p>
+                <div className="about-wrap">
+                    <div className="container">
+                        <h2>Чем мы занимаемся</h2>
+                        <p>
+                            Пассажирские перевозки по Украина комфортабельными автобусами и микроавтобусами.
+                            Стоимость каждой поездки рассчитывается индивидуально.
+                        </p>
+                        <p>Для постоянных клиентов существует система скидок.</p>
+                    </div>
                 </div>
-                <div className="lozung">Мы сделаем Ваши переезды комфортными</div>
-                <div className="picture">
-                    <img src="https://panch.com.ua/files/images/units/covers/big/panch20.jpg" alt="bus-picture"/>
+               
+                <div className="lozung">
+                    <h3>Мы сделаем Ваши переезды комфортными</h3>
                 </div>
             </div>
         )
