@@ -52,7 +52,7 @@ export default class Main extends React.Component {
                                 <i className="fas fa-map-marker-alt"></i> Адрес:
                             </div>
                             <div className="footer-contacts">
-                                г. Харьков, пр. Московский, 257<br/>метро "Дворец Спорта"
+                                г. Харьков, Павловская площадь, 6,<br />метро "Конституции"
                             </div>
                         </div>
                         <div className="time-work">
