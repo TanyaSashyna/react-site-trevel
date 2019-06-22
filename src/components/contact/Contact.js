@@ -51,7 +51,7 @@ export default class Contact extends React.Component {
                                 09:00 - 19:00 Пн-Вс
                             </div>
                         </div>
-                        </div>
+                    </div>
                 </div>
                 
                 <div className="map">

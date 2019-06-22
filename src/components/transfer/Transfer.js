@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from "react-redux";
 
 import "./transfer.scss";
 
@@ -7,7 +8,7 @@ import SelectsBlock from '../selects-block/SelectsBlock';
 import AboutWay from '../aboutWay/AboutWay';
 import FormOrder from '../formOrder/FormOrder';
 
-export default class Transfer extends React.Component {
+export class Transfer extends React.Component {
     constructor(props) {
         super(props);
 
@@ -39,6 +40,7 @@ export default class Transfer extends React.Component {
     }
 
     render() {
+        const { openOrderForm } = this.props;
         return (
             <div className="main">
                 <Caption/>
@@ -60,8 +62,18 @@ export default class Transfer extends React.Component {
                     />
                 </div>
                 <AboutWay />{/* если выбран город во втором селекте, брать данные из redux в компонент, делать запрос и перерисовать */}
-                <FormOrder />{/*если true рисовать FormOrder*/}
+                { openOrderForm && <FormOrder /> }
             </div>
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        openOrderForm: state.orderForm.openOrderForm
+    };
+};
+
+export default connect(
+    mapStateToProps
+)(Transfer);
