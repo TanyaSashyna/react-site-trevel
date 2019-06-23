@@ -44,7 +44,7 @@ export class AboutWay extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        openOrderForm: state.orderForm.openOrderForm
+        openOrderForm: state.transfer.openOrderForm
     };
 };
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from "react-redux";
 
+import { fromWhereSelect, whereSelect } from "../../actions/from-where-selects";
+
 import "./transfer.scss";
 
 import Caption from '../caption/Caption';
@@ -9,60 +11,42 @@ import AboutWay from '../aboutWay/AboutWay';
 import FormOrder from '../formOrder/FormOrder';
 
 export class Transfer extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            fromTo: ['Выберите город', 'Харьков', 'Кириловка', 'Скадовск', 'Лазурное'],
-            fromWhereOne: ['Выберите город', 'Харьков'],
-            fromWhereTwo: ['Выберите город', 'Кириловка', 'Скадовск', 'Лазурное'],
-            valueOne: 0,
-            valueTwo: 0,
-            showSelect: false
-        }
-    }
-
-    handleSelectChange(event) {
-        //сделать это через redux
-        
-        //console.log(this.state.fromWhere[event.target.value], this.state.showSelect);
-
-        event.target.name === "from-where" ?
-            this.setState({ valueOne: event.target.value }) :
-            this.setState({ valueTwo: event.target.value });
-
-        if (event.target.name === "from-where") {
-            //console.log(event.target.value, this.state.showSelect);
-            +event.target.value !== 0 ?
-                this.setState({ showSelect: true }) :
-                this.setState({ showSelect: false })
-        }
-    }
-
     render() {
-        const { openOrderForm } = this.props;
+        const {
+            openOrderForm,
+            fromWhereArr,
+            whereArrOne,
+            whereArrTwo,
+            showSelect,
+            fromWhereSelect,
+            whereSelect,
+            fromWhereVal,
+            showAboutWay,
+            valueTwo
+        } = this.props;
+
         return (
             <div className="main">
                 <Caption/>
                 <div className="select-wrap">
                     <SelectsBlock
                         name="from-where"
-                        value={this.state.valueOne}
-                        fromWhere={this.state.fromTo}
-                        onChange={this.handleSelectChange.bind(this)}
+                        fromWhere={fromWhereArr}
+                        onChange={fromWhereSelect}
                         text="Откуда"
-                    />{/* при onChange менять обьект для второго селекта, отправлять в redux, затем передавать его второму селекту */}
-                    <SelectsBlock
-                        className={this.state.showSelect ? 'd-block' : 'd-none'}
-                        name="where"
-                        value={this.state.valueTwo}
-                        fromWhere={this.state.fromTo}
-                        onChange={this.handleSelectChange.bind(this)}
-                        text="Куда"
                     />
+                    {
+                        showSelect && <SelectsBlock
+                            name="where"
+                            value={valueTwo}
+                            fromWhere={fromWhereVal !== 'Харьков' ? whereArrOne : whereArrTwo}
+                            onChange={whereSelect}
+                            text="Куда"
+                        />
+                    }
                 </div>
-                <AboutWay />{/* если выбран город во втором селекте, брать данные из redux в компонент, делать запрос и перерисовать */}
-                { openOrderForm && <FormOrder /> }
+                {showAboutWay && <AboutWay />}
+                {openOrderForm && <FormOrder />}
             </div>
         )
     }
@@ -70,10 +54,19 @@ export class Transfer extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        openOrderForm: state.orderForm.openOrderForm
+        openOrderForm: state.transfer.openOrderForm,
+        fromWhereArr: state.transfer.fromWhereArr,
+        whereArrOne: state.transfer.whereArrOne,
+        whereArrTwo: state.transfer.whereArrTwo,
+        showSelect: state.transfer.showSelect,
+        fromWhereVal: state.transfer.fromWhereVal,
+        whereVal: state.transfer.whereVal,
+        showAboutWay: state.transfer.showAboutWay,
+        valueTwo: state.transfer.valueTwo
     };
 };
 
 export default connect(
-    mapStateToProps
+    mapStateToProps,
+    { fromWhereSelect, whereSelect }
 )(Transfer);
