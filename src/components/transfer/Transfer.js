@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 
-import { fromWhereSelect, whereSelect } from "../../actions/from-where-selects";
+import { fromWhereSelect, whereSelect, getPosts } from "../../actions/from-where-selects";
 
 import "./transfer.scss";
 
@@ -11,6 +11,13 @@ import AboutWay from '../aboutWay/AboutWay';
 import FormOrder from '../formOrder/FormOrder';
 
 export class Transfer extends React.Component {
+    componentDidUpdate() {
+        console.log("я перерисовался");
+        const { whereVal, getPosts } = this.props;
+
+        whereVal !== '' && getPosts();
+    }
+
     render() {
         const {
             openOrderForm,
@@ -68,5 +75,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { fromWhereSelect, whereSelect }
+    { fromWhereSelect, whereSelect, getPosts }
 )(Transfer);

@@ -9,7 +9,8 @@ const initialState = {
     whereVal: '',
     valueTwo: 0,
     showAboutWay: false,
-    openOrderForm: false
+    openOrderForm: false,
+    aboutWay: {}
 };
 
 export default (state = initialState, action) => {
@@ -24,7 +25,8 @@ export default (state = initialState, action) => {
                 showSelect: action.payload.target.value !== 0 ? true : false,
                 showAboutWay: false,
                 openOrderForm: false,
-                valueTwo: 0
+                valueTwo: 0,
+                whereVal: ''
             };
         }
 
@@ -42,6 +44,29 @@ export default (state = initialState, action) => {
 
         case types.OPEN_ORDER_FORM: {
             return { ...state, openOrderForm: !state.openOrderForm };
+        }
+
+        case types.GET_REQUEST: {
+            return state;
+        }
+
+        case types.GET_REQUEST_SUCCESS: {
+            const data = action.payload;
+            console.log(data);
+
+            const nameWay = `${state.fromWhereVal} - ${state.whereVal}`
+            console.log(nameWay);
+
+            return {
+                ...state,
+                aboutWay: data[nameWay]
+            }
+
+            //return state
+        }
+
+        case types.GET_REQUEST_ERROR: {
+            return state;
         }
 
         default:
