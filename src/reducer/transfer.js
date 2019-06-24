@@ -1,17 +1,6 @@
 import * as types from "../actionTypes/actionTypes";
 
-const initialState = {
-    fromWhereArr: ['Выберите город', 'Харьков', 'Кириловка', 'Скадовск', 'Лазурное'],
-    whereArrOne: ['Выберите город', 'Харьков'],
-    whereArrTwo: ['Выберите город', 'Кириловка', 'Скадовск', 'Лазурное'],
-    showSelect: false,
-    fromWhereVal: '',
-    whereVal: '',
-    valueTwo: 0,
-    showAboutWay: false,
-    openOrderForm: false,
-    aboutWay: {}
-};
+import { initialState } from "./initial-state";
 
 export default (state = initialState, action) => {
     switch (action.type) {
@@ -43,6 +32,7 @@ export default (state = initialState, action) => {
         }
 
         case types.OPEN_ORDER_FORM: {
+            //console.log(state);
             return { ...state, openOrderForm: !state.openOrderForm };
         }
 
@@ -52,20 +42,75 @@ export default (state = initialState, action) => {
 
         case types.GET_REQUEST_SUCCESS: {
             const data = action.payload;
-            console.log(data);
+            //console.log(data);
 
             const nameWay = `${state.fromWhereVal} - ${state.whereVal}`
-            console.log(nameWay);
+            //console.log(nameWay);
 
             return {
                 ...state,
-                aboutWay: data[nameWay]
+                aboutWay: data[nameWay],
+                nameWay: nameWay
             }
-
-            //return state
         }
 
         case types.GET_REQUEST_ERROR: {
+            return state;
+        }
+
+        case types.SHOW_MODAL: {
+            return { ...state, showModalForm: false };
+        }
+
+        case types.CHANGE_VALUE_INPUT: {
+            const nameWay = `${state.fromWhereVal} - ${state.whereVal}`
+
+            const firstNameVal = action.payload.target.name === 'firstName' ?
+                action.payload.target.value :
+                state.userInfo.firstName;
+
+            const lastNameVal = action.payload.target.name === 'lastName' ?
+                action.payload.target.value :
+                state.userInfo.lastName;
+
+            const phoneVal = action.payload.target.name === 'phone' ?
+                action.payload.target.value :
+                state.userInfo.phone;
+
+            const dateVal = action.payload.target.name === 'date' ?
+                action.payload.target.value :
+                state.userInfo.date;
+
+            const numberVal = action.payload.target.name === 'number' ?
+                action.payload.target.value :
+                state.userInfo.number;
+
+            //console.log(state);
+
+            return {
+                ...state,
+                userInfo: {
+                    fromTo: nameWay,
+                    firstName: firstNameVal,
+                    lastName: lastNameVal,
+                    phone: phoneVal,
+                    date: dateVal,
+                    number: numberVal
+                }
+            };
+        }
+
+        case types.POST_REQUEST: {
+            return state;
+        }
+
+        case types.POST_REQUEST_SUCCESS: {
+            console.log(state.userInfo);
+
+            return { ...state, showModalForm: true }
+        }
+
+        case types.POST_REQUEST_ERROR: {
             return state;
         }
 

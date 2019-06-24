@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 
-import { modalForm } from "../../actions/modal-form";
+import { modalForm, onChangeValue, createPost } from "../../actions/form";
 
 import "./form-order.scss";
 
@@ -70,11 +70,12 @@ export class FormOrder extends React.Component {
     }
 
     onChangeValue(e) {
-        console.log(e.target.value)
+        console.log(e.target.name, e.target.value)
     }
 
     render() {
-        const { showModalForm, modalForm } = this.props;
+        const { showModalForm, onChangeValue, createPost, userInfo } = this.props;
+        //console.log(userInfo);
         return (
             <>
                 <form>
@@ -85,7 +86,7 @@ export class FormOrder extends React.Component {
                                 type={el.type}
                                 name={el.name}
                                 placeholder={el.placeholder}
-                                onChange={this.onChangeValue}
+                                onChange={onChangeValue}
                             />
                             <ErrorMessage text={el.errorText} />
                         </div>
@@ -96,7 +97,7 @@ export class FormOrder extends React.Component {
                             type="button"
                             className="btn"
                             id="buy-ticket"
-                            onClick={ modalForm }
+                            onClick={createPost.bind(null, userInfo) }
                         />
                     </div>
                 </form>
@@ -108,11 +109,12 @@ export class FormOrder extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        showModalForm: state.modalForm.showModalForm
+        showModalForm: state.transfer.showModalForm,
+        userInfo: state.transfer.userInfo
     };
 };
 
 export default connect(
     mapStateToProps,
-    { modalForm }
+    { modalForm, onChangeValue, createPost }
 )(FormOrder);

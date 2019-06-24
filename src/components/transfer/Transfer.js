@@ -12,7 +12,7 @@ import FormOrder from '../formOrder/FormOrder';
 
 export class Transfer extends React.Component {
     componentDidUpdate() {
-        console.log("я перерисовался");
+        //console.log("я перерисовался");
         const { whereVal, getPosts } = this.props;
 
         whereVal !== '' && getPosts();

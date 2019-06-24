@@ -28,7 +28,9 @@ const getRequestError = payload => ({
 export const getPosts = () => {
     return dispatch => {
         let promise = fetch("https://dbjson-30815.firebaseio.com/aboutWay.json")
+
         dispatch(getRequest())
+
         promise.then(
             data => data.json().then(data => dispatch(getRequestSuccess(data))),
             error => dispatch(getRequestError(error))
