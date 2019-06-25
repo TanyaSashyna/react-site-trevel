@@ -53,3 +53,26 @@
         text-align: center;
     }
 }
+
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+
+	.item {
+		width: 33.33%;
+		flex-grow: 1;
+
+		@media(max-width: 991px) {
+			width: 50%;
+		}
+
+		@media(max-width: 767px) {
+			width: 100%;
+		}
+
+		img {
+			object-fit: cover;
+			height: 100%;
+		}
+	}
+}
