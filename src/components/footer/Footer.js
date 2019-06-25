@@ -2,6 +2,7 @@ import React from 'react';
 
 import "./footer.scss";
 import {Link} from "react-router-dom";
+import ContactItem from "../contact/contact-item";
 
 const menu = [
     { id: 1, path: "/", text:'Главная'},
@@ -29,7 +30,9 @@ export default class Main extends React.Component {
                         </ul>
                     </div>
                     <div className='footer-wrap__case'>
-                        <div className='phone'>
+                        <ContactItem classIcon="fas fa-mobile-alt" contactName="Телефон" scheduleText="(099) 000 00 00"/>
+                        <ContactItem classIcon="fas fa-envelope" contactName="E-mail" scheduleText="travel@gmail.com"/>
+                            {/*<div className='phone'>
                             <div className="contacts-name">
                                 <i className="fas fa-mobile-alt"></i> Телефон:
                             </div>
@@ -44,10 +47,12 @@ export default class Main extends React.Component {
                             <div className="footer-schedule">
                                 travel@gmail.com
                             </div>
-                        </div>
+                        </div>*/}
                     </div>
                     <div className='footer-wrap__case'>
-                        <div className='address'>
+                        <ContactItem classIcon="fas fa-map-marker-alt" contactName="Адрес" scheduleText="г. Харьков, Павловская площадь, д.6, метро пл.Конституции"/>
+                        <ContactItem classIcon="fas fa-clock" contactName="Время работы офиса" scheduleText="09:00 - 19:00 Пн-Вс"/>
+                            /*<div className='address'>
                             <div className="contacts-name">
                                 <i className="fas fa-map-marker-alt"></i> Адрес:
                             </div>
@@ -62,7 +67,7 @@ export default class Main extends React.Component {
                             <div className="footer-schedule">
                                 09:00 - 19:00 Пн-Вс
                             </div>
-                        </div>
+                        </div>*/}
                     </div>
                 </div>
             </footer>
