@@ -59,7 +59,12 @@ export default (state = initialState, action) => {
         }
 
         case types.SHOW_MODAL: {
-            return { ...state, showModalForm: false };
+            return { 
+				...state, 
+				showModalForm: false,
+				showAboutWay: false,
+				openOrderForm: false
+			};
         }
 
         case types.CHANGE_VALUE_INPUT: {

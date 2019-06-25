@@ -1,7 +1,6 @@
 export const SHOW_SIDEBAR = "SHOW_SIDEBAR";
 
 export const SHOW_MODAL = "SHOW_MODAL";
-export const DELETE_ABOUT_ORDER = "DELETE_ABOUT_ORDER";
 
 export const OPEN_ORDER_FORM = "OPEN_ORDER_FORM";
 

@@ -6,7 +6,7 @@ export default class ModalForm extends React.Component {
 
     render() {
         return (
-            <div className='module' >
+            <div className='module'>
                 <div className="module-content">
                     <div className="module-body">
                         <p>Спасибо за сотрудничество с Нами.</p>
