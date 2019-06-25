@@ -2,6 +2,35 @@ import React from 'react';
 
 import "./contact.scss";
 
+import ContactItem from "./contact-item";
+
+const contactInfo = [
+	{
+		id: 1,
+		classIcon: 'fas fa-mobile-alt',
+		contactName: 'Телефон',
+		scheduleText: '(099) 000 00 00'
+	},
+	{
+		id: 2,
+		classIcon: 'fas fa-envelope',
+		contactName: 'E-mail',
+		scheduleText: 'travel@gmail.com'
+	},
+	{
+		id: 3,
+		classIcon: 'fas fa-map-marker-alt',
+		contactName: 'Адрес',
+		scheduleText: 'г. Харьков, Павловская площадь, д.6, метро пл.Конституции'
+	},
+	{
+		id: 4,
+		classIcon: 'fas fa-clock',
+		contactName: 'Время работы офиса',
+		scheduleText: '09:00 - 19:00 Пн-Вс'
+	}
+]
+
 export default class Contact extends React.Component {
     render() {
         return (
@@ -16,41 +45,14 @@ export default class Contact extends React.Component {
 
                 <div className="container">
                     <div className="contact-wrap">
-                        <div className='contact-item'>
-                            <div className="contact-name">
-                                <i className="fas fa-mobile-alt"></i> Телефон:
-                            </div>
-                            <div className="contact-schedule">
-                                (099) 000 00 00
-                            </div>
-                        </div>
-
-                        <div className="contact-item">
-                            <div className="contact-name">
-                                <i className="fas fa-envelope"></i> E-mail:
-                            </div>
-                            <div className="contact-schedule">
-                                travel@gmail.com
-                            </div>
-                        </div>
-        
-                        <div className='contact-item'>
-                            <div className="contact-name">
-                                <i className="fas fa-map-marker-alt"></i> Адрес:
-                            </div>
-                            <div className="contact-schedule">
-                                г. Харьков, Павловская площадь, 6,<br />метро "Конституции"
-                            </div>
-                        </div>
-
-                        <div className="contact-item">
-                            <div className="contact-name">
-                                <i className="fas fa-clock"></i> Время работы офиса:
-                            </div>
-                            <div className="contact-schedule">
-                                09:00 - 19:00 Пн-Вс
-                            </div>
-                        </div>
+						{contactInfo.map(el=>
+							<ContactItem 
+								key={el.id} 
+								classIcon={el.classIcon} 
+								contactName={el.contactName} 
+								scheduleText={el.scheduleText}
+							/>
+						)}
                     </div>
                 </div>
                 

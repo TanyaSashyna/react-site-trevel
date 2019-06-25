@@ -3,7 +3,6 @@ import React from 'react';
 import "./modal-form.scss";
 
 export default class ModalForm extends React.Component {
-
     render() {
         return (
             <div className='module'>
