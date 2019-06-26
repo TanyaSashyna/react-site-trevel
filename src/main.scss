@@ -17,8 +17,9 @@ html, body, #root {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  font-size: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    color: $color-black;
 }
 
 button, input {
