@@ -13,18 +13,19 @@
         padding: 100px 0;
 
         p {
-            max-width: 500px;
+            max-width: 800px;
             width: 100%;
             text-align: center;
             line-height: 1.5;
             margin: 0 auto;
-            font-size: 1.8em;
+            font-size: 2.1em;
         }
     }
 
     &-routes {
         padding: 100px 0;
         text-align: center;
+        background: $bg-grey;
 
         h2 {
             margin-bottom: 30px;

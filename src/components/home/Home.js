@@ -26,15 +26,18 @@ export default class Home extends React.Component {
                     </div>
                 </div>
 
-                <div className="container">
-                    <div className="home-about">
+                <div className="home-about">
+                    <div className="container">
                         <p>
                             Автобусные пассажирские перевозки нашим комфортабельным автобусом доставят
                             вам удовольствие от поездки. Время в пути пройдет незаметно благодаря
                             уютной обстановке салона и приветливому водителю.
                         </p>
                     </div>
-                    <div className="home-routes">
+                </div>
+
+                <div className="home-routes">
+                    <div className="container">
                         <h2>Регулярные маршруты</h2>
                         <ul>
                             {regularRoutes.map(
