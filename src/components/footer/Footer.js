@@ -1,18 +1,20 @@
 import React from 'react';
+import { connect } from "react-redux";
 
 import "./footer.scss";
 import {Link} from "react-router-dom";
 import ContactItem from "../contact/contact-item";
 
-const menu = [
+/*const menu = [
     { id: 1, path: "/", text:'Главная'},
     { id: 2, path: "/about", text:'О нас' },
     { id: 3, path: "/transfer", text:'Трансфер' },
     { id: 4, path: "/contact", text:'Контакты' }
-];
+];*/
 
-export default class Main extends React.Component {
+export default class Footer extends React.Component {
     render() {
+        const {menu} = this.props;
         return (
             <footer>
                 <div className='container footer-wrap'>
@@ -56,3 +58,13 @@ export default class Main extends React.Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        menu: state.mainMenu.menu
+    };
+};
+
+export default connect(
+    mapStateToProps
+)(Footer);
