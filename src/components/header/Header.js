@@ -10,12 +10,12 @@ import "./header.scss";
 import Button from '../button/Button';
 import ImgComponent from '../imgComponent/ImgComponent';
 
-const menu = [
+/*const menu = [
     { id: 1, path: "/", text:'Главная'},
     { id: 2, path: "/about", text:'О нас' },
     { id: 3, path: "/transfer", text:'Трансфер' },
     { id: 4, path: "/contact", text:'Контакты' }
-];
+];*/
 
 export class Header extends React.Component {
     showSidebar(e){
@@ -23,7 +23,7 @@ export class Header extends React.Component {
     }
 
     render(){
-        const { showSidebar } = this.props;
+        const { showSidebar, menu } = this.props;
         
         return(
             <>
@@ -60,7 +60,8 @@ export class Header extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        showSidebarItem: state.burgerBtn.showSidebar
+        showSidebarItem: state.burgerBtn.showSidebar,
+        menu: state.mainMenu.menu
     };
 };
 
