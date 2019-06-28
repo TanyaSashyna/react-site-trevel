@@ -10,7 +10,7 @@ import Button from '../button/Button';
 import Input from '../input/Input';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 
-const dataForm = [
+/*const dataForm = [
     {
         type: 'text',
         name: 'firstName',
@@ -52,7 +52,7 @@ const dataForm = [
         labelText: 'Количество мест',
         id: 5
     }
-];
+];*/
 
 export class FormOrder extends React.Component {
 
@@ -74,7 +74,7 @@ export class FormOrder extends React.Component {
     }
 
     render() {
-        const { showModalForm, onChangeValue, createPost, userInfo } = this.props;
+        const { showModalForm, onChangeValue, createPost, userInfo, dataForm } = this.props;
         //console.log(userInfo);
         return (
             <>
@@ -110,7 +110,8 @@ export class FormOrder extends React.Component {
 const mapStateToProps = state => {
     return {
         showModalForm: state.transfer.showModalForm,
-        userInfo: state.transfer.userInfo
+        userInfo: state.transfer.userInfo,
+        dataForm: state.transfer.dataForm
     };
 };
 
