@@ -77,8 +77,6 @@ export default class About extends React.Component {
     }
 }
 
-addGalleryPhoto
-
 const mapStateToProps = state => {
     return {
         galleryPhoto: state.addGalleryPhoto.galleryPhoto
@@ -87,4 +85,4 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps
-)(Transfer);
+)(About);
