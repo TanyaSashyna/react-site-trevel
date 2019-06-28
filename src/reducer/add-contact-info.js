@@ -1,7 +1,7 @@
 import * as types from "../actionTypes/actionTypes";
 
 const initialState = {
-  contactInfo = [
+  contactInfo: [
     {
       id: 1,
       classIcon: 'fas fa-mobile-alt',
