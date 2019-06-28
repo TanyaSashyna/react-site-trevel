@@ -1,10 +1,11 @@
 import React from 'react';
+import { connect } from "react-redux";
 
 import "./contact.scss";
 
 import ContactItem from "./contact-item";
 
-const contactInfo = [
+/*const contactInfo = [
 	{
 		id: 1,
 		classIcon: 'fas fa-mobile-alt',
@@ -29,10 +30,11 @@ const contactInfo = [
 		contactName: 'Время работы офиса',
 		scheduleText: '09:00 - 19:00 Пн-Вс'
 	}
-]
+]*/
 
 export default class Contact extends React.Component {
     render() {
+	const {contactInfo} = this.props;
         return (
             <div className="main">
                 <div className="picture">
@@ -70,3 +72,15 @@ export default class Contact extends React.Component {
         )
     }
 }
+
+addContactInfo
+
+const mapStateToProps = state => {
+    return {
+        contactInfo: state.addContactInfo.contactInfo
+    };
+};
+
+export default connect(
+    mapStateToProps
+)(Contact);
