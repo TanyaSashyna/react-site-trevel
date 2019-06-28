@@ -1,10 +1,11 @@
 import React from 'react';
+import { connect } from "react-redux";
 
 import "./about.scss";
 
 import ImgComponent from '../imgComponent/ImgComponent';
 
-const galleryPhoto = [
+/*const galleryPhoto = [
 	{
 		img: 'https://cdn.pixabay.com/photo/2017/08/05/12/47/auto-2583303_960_720.jpg',
 		alt: 'bus1',
@@ -35,10 +36,11 @@ const galleryPhoto = [
 		alt: 'bus6',
 		id: 6
 	}
-]
+]*/
 
 export default class About extends React.Component {
     render() {
+	const {galleryPhoto} = this.props;
         return (
             <div className="main">
                 <div className="picture">
@@ -74,3 +76,15 @@ export default class About extends React.Component {
         )
     }
 }
+
+addGalleryPhoto
+
+const mapStateToProps = state => {
+    return {
+        galleryPhoto: state.addGalleryPhoto.galleryPhoto
+    };
+};
+
+export default connect(
+    mapStateToProps
+)(Transfer);
