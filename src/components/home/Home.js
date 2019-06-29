@@ -1,14 +1,30 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 
 import "./home.scss";
+
+import CaptionPage from './CaptionPage';
+import Caption from '../caption/Caption';
+import ImgComponent from '../imgComponent/ImgComponent';
 
 export default class Home extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            regularRoutes: ['Харьков - Кириловка', 'Харьков - Скадовск', 'Харьков - Лазурное']
+            regularRoutes: [
+                {
+                    city: 'Харьков - Кирилловка',
+                    image: 'https://www.stihi.ru/pics/2014/04/29/11073.jpg'
+                },
+                {
+                    city: 'Харьков - Скадовск',
+                    image: 'https://lh3.googleusercontent.com/-eFExpz4uZ4s/V31johQvXTI/AAAAAAAALNE/4_gXXdNmnXk9yx_lWGwbEn37eM7y5-Q8wCCo/s640/IMG_1188.JPG'
+                },
+                {
+                    city: 'Харьков - Лазурное',
+                    image: 'http://otdyhaem.com.ua/files/images/mys-dzharylgachskij.jpg'
+                }
+            ]
         }
     }
     render() {
@@ -16,35 +32,25 @@ export default class Home extends React.Component {
         return (
             <div className="main">
                 <div className="picture">
-                    <div className="caption-page">
-                        <div className="container home-caption">
-                            <h1>Пассажирские перевозки по Украине</h1>
-                            <Link to="/transfer" className="btn">
-                                Заказать
-                            </Link>
-                        </div>
-                    </div>
+                    <CaptionPage/>
                 </div>
-
-                <div className="home-about">
-                    <div className="container">
-                        <p>
-                            Автобусные пассажирские перевозки нашим комфортабельным автобусом доставят
-                            вам удовольствие от поездки. Время в пути пройдет незаметно благодаря
-                            уютной обстановке салона и приветливому водителю.
-                        </p>
-                    </div>
-                </div>
+                
+                <Caption />
 
                 <div className="home-routes">
-                    <div className="container">
-                        <h2>Регулярные маршруты</h2>
-                        <ul>
-                            {regularRoutes.map(
-                                (route, ind) => <li key={ind}>{route}</li>
-                            )}
-                        </ul>
-                    </div>
+                    <h2>Регулярные маршруты</h2>
+                    <ul>
+                        {regularRoutes.map(
+                            (route, ind) => <li key={ind}>
+                                <h4>{route.city}</h4>
+                                <ImgComponent src={route.image} />
+                            </li>
+                        )}
+                    </ul>
+                </div>
+
+                <div className='home-order'>
+                    <CaptionPage />
                 </div>
             </div>
         )

@@ -5,7 +5,7 @@ import { fromWhereSelect, whereSelect, getPosts } from "../../actions/from-where
 
 import "./transfer.scss";
 
-import Caption from '../caption/Caption';
+import CaptionPicture from '../caption-picture/CaptionPicture';
 import SelectsBlock from '../selects-block/SelectsBlock';
 import AboutWay from '../aboutWay/AboutWay';
 import FormOrder from '../formOrder/FormOrder';
@@ -34,7 +34,8 @@ export class Transfer extends React.Component {
 
         return (
             <div className="main">
-                <Caption/>
+                <CaptionPicture text='Заказать трансфер' />
+                
                 <div className="select-wrap">
                     <SelectsBlock
                         name="from-where"

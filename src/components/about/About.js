@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import "./about.scss";
 
+import CaptionPicture from '../caption-picture/CaptionPicture';
 import ImgComponent from '../imgComponent/ImgComponent';
 
 export class About extends React.Component {
@@ -10,13 +12,8 @@ export class About extends React.Component {
 	const {galleryPhoto} = this.props;
         return (
             <div className="main">
-                <div className="picture">
-                    <div className="caption-page">
-                        <div className="container">
-                            <h1>О нас</h1>
-                        </div>
-                    </div>
-                </div>
+                <CaptionPicture text='О нас'/>
+
                 <div className="about-wrap">
                     <div className="container">
                         <h2>Чем мы занимаемся</h2>
@@ -37,7 +34,10 @@ export class About extends React.Component {
 					}
 				</div>
                 <div className="lozung">
-                    <h3>Мы сделаем Ваши переезды комфортными</h3>
+                    <div className="lozung-bg">
+                        <h3>Мы сделаем Ваши переезды комфортными</h3>
+                        <Link to="/transfer" className="btn">Заказать</Link>
+                    </div>
                 </div>
             </div>
         )

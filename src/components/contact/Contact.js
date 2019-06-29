@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import "./contact.scss";
 
+import CaptionPicture from '../caption-picture/CaptionPicture';
 import ContactItem from "./contact-item";
 
 export class Contact extends React.Component {
@@ -10,13 +11,7 @@ export class Contact extends React.Component {
 	const {contactInfo} = this.props;
         return (
             <div className="main">
-                <div className="picture">
-                    <div className="caption-page">
-                        <div className="container">
-                            <h1>Контакты</h1>
-                        </div>
-                    </div>
-                </div>
+                <CaptionPicture text='Контакты' />
 
                 <div className="container">
                     <div className="contact-wrap">

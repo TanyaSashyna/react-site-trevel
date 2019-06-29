@@ -38,19 +38,22 @@
 
 .lozung {
     position: relative;
-	padding: 50px 0;
+    padding: 70px 0;
     overflow: hidden;
     background-image: url(https://cdn.pixabay.com/photo/2017/08/05/12/47/auto-2583303_960_720.jpg);
     background-position: 100% 70%;
     background-size: cover;
     background-repeat: no-repeat;
 
-    h3 {
-        padding: 120px 0;
+    &-bg {
         padding: 50px 10px;
-        font-size: 3em;
         background: rgba(255, 255, 255, 0.7);
         text-align: center;
+    }
+
+    h3 {
+        font-size: 3em;
+        margin-bottom: 30px;
     }
 }
 
