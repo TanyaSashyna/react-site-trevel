@@ -12,7 +12,6 @@ import FormOrder from '../formOrder/FormOrder';
 
 export class Transfer extends React.Component {
     componentDidUpdate() {
-        //console.log("я перерисовался");
         const { whereVal, getPosts } = this.props;
 
         whereVal !== '' && getPosts();
@@ -29,6 +28,7 @@ export class Transfer extends React.Component {
             whereSelect,
             fromWhereVal,
             showAboutWay,
+            valueOne,
             valueTwo
         } = this.props;
 
@@ -38,6 +38,7 @@ export class Transfer extends React.Component {
                 <div className="select-wrap">
                     <SelectsBlock
                         name="from-where"
+                        value={valueOne}
                         fromWhere={fromWhereArr}
                         onChange={fromWhereSelect}
                         text="Откуда"
@@ -69,6 +70,7 @@ const mapStateToProps = state => {
         fromWhereVal: state.transfer.fromWhereVal,
         whereVal: state.transfer.whereVal,
         showAboutWay: state.transfer.showAboutWay,
+        valueOne: state.transfer.valueOne,
         valueTwo: state.transfer.valueTwo
     };
 };

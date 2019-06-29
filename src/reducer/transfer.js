@@ -6,14 +6,15 @@ export default (state = initialState, action) => {
     switch (action.type) {
         case types.FROM_WHERE_SELECT: {
             const selindOne = action.payload.target.options.selectedIndex;
-            const valueOne = action.payload.target.options[selindOne].text;
+            const valueText = action.payload.target.options[selindOne].text;
 
             return {
                 ...state,
-                fromWhereVal: valueOne,
+                fromWhereVal: valueText,
                 showSelect: action.payload.target.value !== 0 ? true : false,
                 showAboutWay: false,
                 openOrderForm: false,
+                valueOne: action.payload.target.value,
                 valueTwo: 0,
                 whereVal: ''
             };
@@ -32,7 +33,6 @@ export default (state = initialState, action) => {
         }
 
         case types.OPEN_ORDER_FORM: {
-            //console.log(state);
             return { ...state, openOrderForm: !state.openOrderForm };
         }
 
@@ -42,10 +42,8 @@ export default (state = initialState, action) => {
 
         case types.GET_REQUEST_SUCCESS: {
             const data = action.payload;
-            //console.log(data);
 
-            const nameWay = `${state.fromWhereVal} - ${state.whereVal}`
-            //console.log(nameWay);
+            const nameWay = `${state.fromWhereVal} - ${state.whereVal}`;
 
             return {
                 ...state,
@@ -68,40 +66,46 @@ export default (state = initialState, action) => {
         }
 
         case types.CHANGE_VALUE_INPUT: {
-            const nameWay = `${state.fromWhereVal} - ${state.whereVal}`
+            const regArr = state.regArr;
+            const nameWay = `${state.fromWhereVal} - ${state.whereVal}`;
 
-            const firstNameVal = action.payload.target.name === 'firstName' ?
-                action.payload.target.value :
-                state.userInfo.firstName;
+            const targetName = action.payload.target.name;
+            const tagretVal = action.payload.target.value;
+            const targetId = Number(action.payload.target.id);            
 
-            const lastNameVal = action.payload.target.name === 'lastName' ?
-                action.payload.target.value :
-                state.userInfo.lastName;
+            let error = state.showError;
+            let nameVal;
 
-            const phoneVal = action.payload.target.name === 'phone' ?
-                action.payload.target.value :
-                state.userInfo.phone;
+            if (targetName === 'firstName' || targetName === 'lastName') {
+                const errorTrue = tagretVal.search(regArr[0]) !== 0;
+                error[targetId] = errorTrue;
+                nameVal = tagretVal;
 
-            const dateVal = action.payload.target.name === 'date' ?
-                action.payload.target.value :
-                state.userInfo.date;
+            }  else if (targetName === 'phone') {
 
-            const numberVal = action.payload.target.name === 'number' ?
-                action.payload.target.value :
-                state.userInfo.number;
+                const errorTrue = tagretVal.search(regArr[1]) !== 0;
+                error[targetId] = errorTrue;
+                nameVal = tagretVal;
 
-            //console.log(state);
+            } else if (targetName === 'date' || targetName === 'number') {
+
+                const errorTrue = tagretVal.search(regArr[2]) !== 0;
+                error[targetId] = errorTrue;
+                nameVal = tagretVal;
+
+            }
+            
+            //console.log(state.userInfo);
 
             return {
                 ...state,
                 userInfo: {
+                    ...state.userInfo,
                     fromTo: nameWay,
-                    firstName: firstNameVal,
-                    lastName: lastNameVal,
-                    phone: phoneVal,
-                    date: dateVal,
-                    number: numberVal
-                }
+                    [targetName]: nameVal ? nameVal : state.userInfo[targetName]
+                },
+                showError: error,
+                disabled: state.showError.some(bool => bool === true)
             };
         }
 
@@ -110,13 +114,22 @@ export default (state = initialState, action) => {
         }
 
         case types.POST_REQUEST_SUCCESS: {
-            console.log(state.userInfo);
+            //console.log(state.userInfo);
 
             return { ...state, showModalForm: true }
         }
 
         case types.POST_REQUEST_ERROR: {
             return state;
+        }
+
+        case types.RESET_VALUE_SELECT: {
+            return {
+                ...state,
+                showSelect: false,
+                valueOne: 0,
+                valueTwo: 0
+            }
         }
 
         default:

@@ -1,8 +1,21 @@
 import React from 'react';
+import { connect } from "react-redux";
+
+import { modalForm } from "../../actions/form";
+import { resetValueSelect } from "../../actions/from-where-selects";
 
 import "./modal-form.scss";
 
-export default class ModalForm extends React.Component {
+export class ModalForm extends React.Component {
+    componentDidMount() {
+        const { modalForm, resetValueSelect } = this.props;
+
+        setTimeout(function () {
+            modalForm();
+            resetValueSelect()
+        }, 5000)
+    }
+
     render() {
         return (
             <div className='module'>
@@ -17,3 +30,8 @@ export default class ModalForm extends React.Component {
         )
     }
 }
+
+export default connect(
+    null,
+    { modalForm, resetValueSelect }
+)(ModalForm);

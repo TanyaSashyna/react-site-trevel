@@ -6,7 +6,7 @@ export const initialState = {
             placeholder: 'Имя',
             errorText: 'Введите имя',
             labelText: 'Имя',
-            id: 1
+            id: 0
         },
          {
             type: 'text',
@@ -14,7 +14,7 @@ export const initialState = {
             placeholder: 'Фамилия',
             errorText: 'Введите имя',
             labelText: 'Фамилия',
-            id: 2
+            id: 1
         },
         {
             type: 'phone',
@@ -22,7 +22,7 @@ export const initialState = {
             placeholder: 'Телефон',
             errorText: 'Введите номер телефона',
             labelText: 'Телефон',
-            id: 3
+            id: 2
         },
         {
             type: 'date',
@@ -31,7 +31,7 @@ export const initialState = {
             errorText: 'Введите дату',
             className: 'date',
             labelText: 'Дата',
-            id: 4
+            id: 3
         },
         {
             type: 'text',
@@ -39,10 +39,17 @@ export const initialState = {
             placeholder: '0',
             errorText: 'Не корректное количество мест',
             labelText: 'Количество мест',
-            id: 5
+            id: 4
         }
     ],
     showModalForm: false,
+    regArr: [
+        /^[a-zA-Zа-яА-Я]+$/,
+        /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/,
+        /[0-9]/
+    ],
+    showError: [false, false, false, true, true],
+    disabled: true,
     userInfo: {
         fromTo: '',
         firstName: '',
@@ -57,6 +64,7 @@ export const initialState = {
     showSelect: false,
     fromWhereVal: '',
     whereVal: '',
+    valueOne: 0,
     valueTwo: 0,
     showAboutWay: false,
     openOrderForm: false,

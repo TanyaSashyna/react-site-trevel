@@ -38,7 +38,7 @@ import ImgComponent from '../imgComponent/ImgComponent';
 	}
 ]*/
 
-export default class About extends React.Component {
+export class About extends React.Component {
     render() {
 	const {galleryPhoto} = this.props;
         return (

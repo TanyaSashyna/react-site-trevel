@@ -35,6 +35,9 @@
     }
 
     &-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         width: 50%;
         padding: 20px;
 
@@ -51,15 +54,15 @@
             }
         }
 
-        .time, 
-        .where, 
-        .city-time, 
+        .time,
+        .where,
+        .city-time,
         .price {
             font-weight: 700;
         }
 
-        .way-time, 
-        .way-where, 
+        .way-time,
+        .way-where,
         .arrival {
             padding-bottom: 10px;
             font-size: 1.6em;

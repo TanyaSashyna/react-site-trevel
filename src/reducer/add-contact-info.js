@@ -32,7 +32,7 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case types.ADD_CONTACT_INFO: {
-            return ...state
+            return state
         }
         default:
             return state;

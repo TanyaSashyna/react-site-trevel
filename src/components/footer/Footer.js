@@ -12,7 +12,7 @@ import ContactItem from "../contact/contact-item";
     { id: 4, path: "/contact", text:'Контакты' }
 ];*/
 
-export default class Footer extends React.Component {
+export class Footer extends React.Component {
     render() {
         const {menu} = this.props;
         return (

@@ -12,7 +12,7 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case types.MAIN_MENU: {
-            return ...state
+            return state
         }
         default:
             return state;

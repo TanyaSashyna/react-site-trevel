@@ -21,6 +21,10 @@ form {
             left: 10px;
             font-size: 1.2em;
             color: $color-error;
+
+            &.show {
+                display: block;
+            }
         }
     }
 

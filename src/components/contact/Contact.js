@@ -32,7 +32,7 @@ import ContactItem from "./contact-item";
 	}
 ]*/
 
-export default class Contact extends React.Component {
+export class Contact extends React.Component {
     render() {
 	const {contactInfo} = this.props;
         return (
@@ -72,8 +72,6 @@ export default class Contact extends React.Component {
         )
     }
 }
-
-addContactInfo
 
 const mapStateToProps = state => {
     return {

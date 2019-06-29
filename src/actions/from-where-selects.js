@@ -10,6 +10,10 @@ export const whereSelect = payload => ({
     payload
 });
 
+export const resetValueSelect = () => ({
+    type: types.RESET_VALUE_SELECT
+})
+
 const getRequest = payload => ({
     type: types.GET_REQUEST,
     payload
