@@ -6,13 +6,6 @@ import { showSidebar } from "../../actions/burger-btn";
 
 import "./menuMob.scss";
 
-/*const menu = [
-    { id: 1, path: "/", text:'Главная'},
-    { id: 2, path: "/about", text:'О нас' },
-    { id: 3, path: "/transfer", text:'Трансфер' },
-    { id: 4, path: "/contact", text:'Контакты' }
-];*/
-
 export class MenuMob extends React.Component {
     logout(e) {
         console.log('logout')
@@ -45,7 +38,7 @@ export class MenuMob extends React.Component {
 const mapStateToProps = state => {
     return {
         showSidebarItem: state.burgerBtn.showSidebar,
-        menu: state.mainMenu.menu
+        menu: state.transfer.menu
     };
 };
 

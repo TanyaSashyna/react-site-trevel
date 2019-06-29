@@ -11,7 +11,6 @@ import Button from '../button/Button';
 export class AboutWay extends React.Component {
     render() {
         const { openOrderForm, orderForm, fromWhereVal, whereVal, aboutWay } = this.props;
-        //console.log(aboutWay);
 
         return(
             <div className="way-content">

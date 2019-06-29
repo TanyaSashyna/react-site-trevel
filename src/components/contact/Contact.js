@@ -5,33 +5,6 @@ import "./contact.scss";
 
 import ContactItem from "./contact-item";
 
-/*const contactInfo = [
-	{
-		id: 1,
-		classIcon: 'fas fa-mobile-alt',
-		contactName: 'Телефон',
-		scheduleText: '(099) 000 00 00'
-	},
-	{
-		id: 2,
-		classIcon: 'fas fa-envelope',
-		contactName: 'E-mail',
-		scheduleText: 'travel@gmail.com'
-	},
-	{
-		id: 3,
-		classIcon: 'fas fa-map-marker-alt',
-		contactName: 'Адрес',
-		scheduleText: 'г. Харьков, Павловская площадь, д.6, метро пл.Конституции'
-	},
-	{
-		id: 4,
-		classIcon: 'fas fa-clock',
-		contactName: 'Время работы офиса',
-		scheduleText: '09:00 - 19:00 Пн-Вс'
-	}
-]*/
-
 export class Contact extends React.Component {
     render() {
 	const {contactInfo} = this.props;
@@ -75,7 +48,7 @@ export class Contact extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        contactInfo: state.addContactInfo.contactInfo
+        contactInfo: state.transfer.contactInfo
     };
 };
 
