@@ -5,6 +5,7 @@ import { initialState } from "./initial-state";
 export default (state = initialState, action) => {
     switch (action.type) {
         case types.FROM_WHERE_SELECT: {
+            //const { options } = action.payload.target деструктуризация для action.payload.target
             const selindOne = action.payload.target.options.selectedIndex;
             const valueText = action.payload.target.options[selindOne].text;
 
@@ -21,6 +22,7 @@ export default (state = initialState, action) => {
         }
 
         case types.WHERE_SELECT: {
+            // деструктуризация для action.payload.target
             const selindTwo = action.payload.target.options.selectedIndex;
             const valueTwo = action.payload.target.options[selindTwo].text;
 
@@ -68,7 +70,7 @@ export default (state = initialState, action) => {
         case types.CHANGE_VALUE_INPUT: {
             const regArr = state.regArr;
             const nameWay = `${state.fromWhereVal} - ${state.whereVal}`;
-
+            // деструктуризация для action.payload.target
             const targetName = action.payload.target.name;
             const tagretVal = action.payload.target.value;
             const targetId = Number(action.payload.target.id);            
@@ -105,7 +107,7 @@ export default (state = initialState, action) => {
                     [targetName]: nameVal ? nameVal : state.userInfo[targetName]
                 },
                 showError: error,
-                disabled: state.showError.some(bool => bool === true)
+                disabled: state.showError.some(bool => bool)
             };
         }
 
